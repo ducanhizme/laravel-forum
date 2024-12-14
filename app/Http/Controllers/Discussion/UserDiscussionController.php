@@ -29,7 +29,7 @@ class UserDiscussionController extends Controller
 
     public function store(DiscussionRequest $request){
         $discussion = $this->discussionService->createUserDiscussion($request->validated());
-        return $this->respondCreated(new DiscussionResource($discussion->load('upVote')), 'Discussion created successfully');
+        return $this->respondCreated(new DiscussionResource($discussion->load('vote')), 'Discussion created successfully');
     }
 
     public function destroy(Discussion $discussion){

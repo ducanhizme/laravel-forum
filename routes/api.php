@@ -39,6 +39,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/{discussion}/comment', [\App\Http\Controllers\Discussion\DiscussionController::class, 'comment']);
         Route::post('/{discussion}/vote',[ \App\Http\Controllers\Discussion\DiscussionController::class, 'vote']);
         Route::post('{discussion}/comment/{comment}/reply', [\App\Http\Controllers\Discussion\DiscussionController::class, 'reply']);
+
+    });
+    Route::prefix('tag')->group(function () {
+        Route::get('/', [\App\Http\Controllers\TagController::class, 'getAllTag']);
+        Route::post('/', [\App\Http\Controllers\TagController::class, 'createTag']);
+        Route::post('/ai', [\App\Http\Controllers\TagController::class, 'createTagWithAi']);
     });
 });
 

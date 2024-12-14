@@ -13,7 +13,11 @@ class DiscussionService
         return Discussion::with(['user','vote','comments'])->latest()->get();
     }
     public function createUserDiscussion($data){
-        return auth()->user()->discussions()->create($data);
+        $discussion = auth()->user()->discussions()->create($data);
+        if ($data['tags']){
+            $discussion->tags()->sync($data['tags']);
+        }
+        return $discussion;
     }
 
     public function getUserDiscussion(){

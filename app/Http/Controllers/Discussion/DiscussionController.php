@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Discussion;
 
+use App\Helpers\PromptGeminiHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\VotableRequest;
@@ -10,6 +11,8 @@ use App\Interface\Reaction;
 use App\Models\Comment;
 use App\Models\Discussion;
 use App\Service\DiscussionService;
+use Gemini\Laravel\Facades\Gemini;
+use Illuminate\Http\Request;
 
 class DiscussionController extends Controller
 {

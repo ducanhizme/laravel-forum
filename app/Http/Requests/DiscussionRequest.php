@@ -11,6 +11,7 @@ class DiscussionRequest extends FormRequest
     {
         return match ($this->method()) {
             'POST' => [
+                'tags'=> ['required', 'array'],
                 'title' => ['required', 'string'],
                 'content' => ['required', 'string'],
             ],

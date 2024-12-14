@@ -32,10 +32,6 @@ class UserService
                 'access_token' => $accessToken,
                 'refresh_token' => $refreshToken
             ];
-        }else{
-            return [
-                'message' => 'Invalid credentials'
-            ];
         }
     }
 
