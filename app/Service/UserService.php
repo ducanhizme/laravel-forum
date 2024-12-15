@@ -9,6 +9,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
+use Illuminate\Validation\UnauthorizedException;
 
 class UserService
 {
@@ -32,6 +33,8 @@ class UserService
                 'access_token' => $accessToken,
                 'refresh_token' => $refreshToken
             ];
+        }else{
+            throw new UnauthorizedException('Invalid credentials');
         }
     }
 
